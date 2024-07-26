@@ -1,4 +1,4 @@
-package me.jcs.Car.Wash;
+package me.jcs.CarWash;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

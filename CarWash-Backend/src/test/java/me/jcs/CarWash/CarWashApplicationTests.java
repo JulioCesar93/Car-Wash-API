@@ -1,4 +1,4 @@
-package me.jcs.Car.Wash;
+package me.jcs.CarWash;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
