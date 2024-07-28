@@ -38,6 +38,7 @@ classDiagram
 class Cliente {
     - Integer id
     - String nome
+    - TipoCliente [PF, PJ] tipoCliente
     - String telefone
     - String endereco
     - LocalDate dataCriacao
