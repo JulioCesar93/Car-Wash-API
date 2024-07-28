@@ -29,19 +29,28 @@ classDiagram
 
   class Veiculo {
     - Integer id
-    - String veiculo
+    - String nomeVeiculo
     - String placa
     - String cor
     - CategoriaVeiculo [] categoriaVeiculo
-
   }
+
+class Cliente {
+    - Integer id
+    - String nome
+    - String telefone
+    - String endereco
+    - LocalDate dataCriacao
+}
 
   class Profissional {
     - NomeProfissional [] nomeProfissional
   }
 
-OrdemDeServico <|-- Veiculo
-OrdemDeServico <|-- Profissional
+  OrdemDeServico "1" *-- "1" Veiculo
+  OrdemDeServico "1" *-- "1" Cliente
+  OrdemDeServico "1" *-- "1" Profissional
+  Cliente "1" *-- "N" Veiculo
   
 ```
 ## Regra de Negócio
