@@ -4,7 +4,7 @@ public enum CategoriaVeiculo {
 
     MOTO(0, "MOTO"),
     CARRO(1, "CARRO"),
-    CAMINHONETE(2, "ALTA"),
+    TRUCK(2, "TRUCK"),
     VAN(3, "VAN");
 
     private Integer codigo;

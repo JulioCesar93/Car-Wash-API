@@ -6,6 +6,7 @@ import me.jcs.CarWash.domain.enums.Prioridade;
 import me.jcs.CarWash.domain.enums.Profissional;
 import me.jcs.CarWash.domain.enums.Status;
 import me.jcs.CarWash.domain.enums.TipoLavagem;
+import me.jcs.CarWash.domain.enums.Veiculo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -22,20 +23,22 @@ public class OrdemDeServico implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name= "cliente_id")
-    private Cliente cliente;
+    @JoinColumn(name= "nomeCliente_id")
+    private Cliente nomeCliente;
 
     @ManyToOne
     @JoinColumn(name= "veiculo_id")
-    private String veiculo;
+    private Veiculo veiculo;
 
+    @Enumerated(EnumType.STRING)
     private TipoLavagem tipoLavagem;
-    private BigDecimal price;
-    private Prioridade prioridade;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
 
-    @ManyToOne
-    @JoinColumn(name= "profissional_id")
+    private BigDecimal price;
+    private Prioridade prioridade;
+
     private Profissional profissional;
 
     private String observacoes;
@@ -56,9 +59,9 @@ public class OrdemDeServico implements Serializable {
         super();
     }
 
-    public OrdemDeServico(Integer id, Cliente cliente, String veiculo, TipoLavagem tipoLavagem, BigDecimal price, Prioridade prioridade, Status status, Profissional profissional, String observacoes) {
+    public OrdemDeServico (Integer id, Cliente nomeCliente, Veiculo veiculo, TipoLavagem tipoLavagem, BigDecimal price, Prioridade prioridade, Status status, Profissional profissional, String observacoes) {
         this.id = id;
-        this.cliente = cliente;
+        this.nomeCliente = nomeCliente;
         this.veiculo = veiculo;
         this.tipoLavagem = tipoLavagem;
         this.price = price;
@@ -77,18 +80,18 @@ public class OrdemDeServico implements Serializable {
     }
 
     public Cliente getCliente() {
-        return cliente;
+        return nomeCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(Cliente nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
-    public String getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(String veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 

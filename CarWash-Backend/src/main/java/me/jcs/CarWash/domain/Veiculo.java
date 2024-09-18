@@ -1,12 +1,9 @@
 package me.jcs.CarWash.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import me.jcs.CarWash.domain.enums.CategoriaVeiculo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,7 +18,10 @@ public class Veiculo implements Serializable {
 
     @Column(unique = true)
     protected String placa;
+
     protected String cor;
+
+    @Enumerated(EnumType.STRING)
     protected CategoriaVeiculo categoriaVeiculo;
 
     public Veiculo() {

@@ -1,5 +1,6 @@
 package me.jcs.CarWash.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import me.jcs.CarWash.domain.enums.TipoCliente;
@@ -22,19 +23,20 @@ public abstract class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 
-    protected String nome;
+    protected String nomeCliente;
     protected TipoCliente tipoCliente;
     protected String telefone;
     protected String endereco;
-    protected LocalDate dataCriacao;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    protected LocalDate dataCriacao = LocalDate.now();
 
     public Cliente() {
         super();
     }
 
-    public Cliente(Integer id, String nome, TipoCliente tipoCliente, String telefone, String endereco, LocalDate dataCriacao) {
+    public Cliente(Integer id, String nomeCliente, TipoCliente tipoCliente, String telefone, String endereco, LocalDate dataCriacao) {
         this.id = id;
-        this.nome = nome;
+        this.nomeCliente = nomeCliente;
         this.tipoCliente = tipoCliente;
         this.telefone = telefone;
         this.endereco = endereco;
@@ -50,11 +52,11 @@ public abstract class Cliente implements Serializable {
     }
 
     public String getNome() {
-        return nome;
+        return nomeCliente;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nomeCliente = nome;
     }
 
     public TipoCliente getTipoCliente() {
